@@ -64,8 +64,8 @@ class Chef
             else
               # grant privileges for specific table
               # user became readonly
-              user_ro = "ALTER USER \"#{@new_resource.username}\" set default_transaction_read_only = on"
-              db(@new_resource.database_name).query(user_ro)
+              #user_ro = "ALTER USER \"#{@new_resource.username}\" set default_transaction_read_only = on"
+              #db(@new_resource.database_name).query(user_ro)
               db_usage = "GRANT CONNECT ON DATABASE \"#{@new_resource.database_name}\" TO \"#{@new_resource.username}\""
               db(@new_resource.database_name).query(db_usage)
               grant_statement = "GRANT #{@new_resource.privileges.join(', ')} ON TABLE \"#{@new_resource.table}\" TO \"#{@new_resource.username}\""
